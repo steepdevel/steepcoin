@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Steepcoin
+Comment=Desktop allet for Steepcoin Cryptocurrency
+Comment[de]=Offizieller Client für die Kryptowährung Steepcoin
+Exec=steepcoin-qt %u
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/steepcoin128.png
+MimeType=x-scheme-handler/steepcoin;
+Categories=Office;Finance;
+StartupWMClass=Steepcoin-qt

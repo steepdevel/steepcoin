@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[steepcoin.qt-translation-016x]
+file_filter = src/qt/locale/steepcoin_<lang>.ts
+source_file = src/qt/locale/steepcoin_en.ts
+source_lang = en

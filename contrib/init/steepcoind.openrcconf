@@ -1,0 +1,33 @@
+# /etc/conf.d/steepcoind: config file for /etc/init.d/steepcoind
+
+# Config file location
+#STEEPCOIND_CONFIGFILE="/etc/steepcoin/steepcoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $STEEPCOIND_USER)
+#STEEPCOIND_PIDDIR="/var/run/steepcoind"
+
+# What filename to give the pidfile
+#STEEPCOIND_PIDFILE="${STEEPCOIND_PIDDIR}/steepcoind.pid"
+
+# Where to write steepcoind data (be mindful that the blockchain is large)
+#STEEPCOIND_DATADIR="/var/lib/steepcoind"
+
+# User and group to own steepcoind process
+#STEEPCOIND_USER="steepcoin"
+#STEEPCOIND_GROUP="steepcoin"
+
+# Path to steepcoind executable
+#STEEPCOIND_BIN="/usr/bin/steepcoind"
+
+# Nice value to run steepcoind under
+#STEEPCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#STEEPCOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for steepcoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+STEEPCOIND_SIGTERM_TIMEOUT=60

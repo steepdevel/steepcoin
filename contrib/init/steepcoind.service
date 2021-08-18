@@ -1,0 +1,25 @@
+# It is not recommended to modify this file in-place, because it will
+# be overwritten during package upgrades. If you want to add further
+# options or overwrite existing ones then use
+# $ systemctl edit steepcoind.service
+# See "man systemd.service" for details.
+
+# Note that almost all daemon options could be specified in
+# /etc/steepcoin/steepcoin.conf
+
+[Unit]
+Description=SteepCoin daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/steepcoind -daemon -conf=/etc/steepcoin/steepcoin.conf -pid=/run/steepcoind/steepcoind.pid
+# Creates /run/steepcoind owned by steepcoin
+RuntimeDirectory=steepcoind
+User=steepcoin
+Type=forking
+PIDFile=/run/steepcoind/steepcoind.pid
+Restart=on-failure
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

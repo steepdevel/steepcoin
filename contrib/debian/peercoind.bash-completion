@@ -1,0 +1,3 @@
+contrib/steepcoind.bash-completion	steepcoind
+contrib/steepcoin-cli.bash-completion	steepcoin-cli
+contrib/steepcoin-tx.bash-completion	steepcoin-tx

@@ -1,0 +1,8 @@
+/usr/bin/steepcoin-cli		--	gen_context(system_u:object_r:steepcoin_exec_t,s0)
+/usr/sbin/steepcoind		--	gen_context(system_u:object_r:steepcoin_exec_t,s0)
+/usr/lib(64)?/steepcoin/steepcoind		--	gen_context(system_u:object_r:steepcoin_exec_t,s0)
+
+/etc/steepcoin(/.*)?		gen_context(system_u:object_r:steepcoin_conf_t,s0)
+/var/lib/steepcoin(/.*)?		gen_context(system_u:object_r:steepcoin_var_lib_t,s0)
+
+(/var)?/run/steepcoind(/.*)?   gen_context(system_u:object_r:steepcoin_var_run_t,s0)

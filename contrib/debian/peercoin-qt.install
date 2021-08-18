@@ -1,0 +1,11 @@
+usr/local/bin/steepcoin-qt usr/bin
+share/pixmaps/steepcoin16.png usr/share/pixmaps
+share/pixmaps/steepcoin32.png usr/share/pixmaps
+share/pixmaps/steepcoin128.png usr/share/pixmaps
+share/pixmaps/steepcoin256.png usr/share/pixmaps
+share/pixmaps/steepcoin-testnet32.png usr/share/pixmaps
+share/pixmaps/steepcoin-testnet128.png usr/share/pixmaps
+share/pixmaps/steepcoin-testnet256.png usr/share/pixmaps
+debian/steepcoin-qt.desktop usr/share/applications
+debian/steepcoin-testnet-qt.desktop usr/share/applications
+debian/steepcoin-qt.protocol usr/share/kde4/services/

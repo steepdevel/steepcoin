@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Steepcoin (testnet)
+Comment=Desktop allet for Steepcoin Cryptocurrency (testnet)
+Comment[de]=Offizieller Client für die Kryptowährung Steepcoin (testnet)
+Exec=steepcoin-qt -testnet %u
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/steepcoin-testnet128.png
+MimeType=x-scheme-handler/steepcoin;
+Categories=Application;Network;
