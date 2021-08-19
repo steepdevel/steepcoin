@@ -17,9 +17,9 @@ typedef int64_t CAmount;
 static const CAmount COIN = 100000000;
 static const CAmount CENT = 1000000;
 
-static const CAmount MIN_TX_FEE_PREV7 = 1000000000;
-static const CAmount MIN_TX_FEE = 1000000000;
-static const CAmount PERKB_TX_FEE = 1000000000;
+static const CAmount MIN_TX_FEE_PREV7 = 100000000;
+static const CAmount MIN_TX_FEE = 100000000;
+static const CAmount PERKB_TX_FEE = 100000000;
 static const CAmount MIN_TXOUT_AMOUNT = CENT;
 static const CAmount MAX_MINT_PROOF_OF_WORK = 9999 * COIN;
 static const std::string CURRENCY_UNIT = "STEEP";
