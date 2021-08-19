@@ -9,7 +9,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string>
-#include <limits>
+
 
 /** Amount in satoshis (Can be negative) */
 typedef int64_t CAmount;
@@ -18,8 +18,8 @@ static const CAmount COIN = 100000000;
 static const CAmount CENT = 1000000;
 
 static const CAmount MIN_TX_FEE_PREV7 = COIN;
-static const CAmount MIN_TX_FEE = COIN / 10;
-static const CAmount PERKB_TX_FEE = COIN;
+static const CAmount MIN_TX_FEE = 1000000000;
+static const CAmount PERKB_TX_FEE = 1000000000;
 static const CAmount MIN_TXOUT_AMOUNT = CENT;
 static const CAmount MAX_MINT_PROOF_OF_WORK = 9999 * COIN;
 static const std::string CURRENCY_UNIT = "STEEP";
