@@ -9,7 +9,7 @@
  * network protocol versioning
  */
 
-static const int PROTOCOL_VERSION = 70015;
+static const int PROTOCOL_VERSION = 85023;
 static const int OLD_VERSION = 85023; // steepcoin: used to communicate with clients that don't know how to send PoS information in headers
 
 //! initial proto version, to be increased after version/verack negotiation
