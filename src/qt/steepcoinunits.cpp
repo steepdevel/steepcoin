@@ -71,10 +71,10 @@ qint64 SteepCoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case STEEP:  return 1000000;
-    case mSTEEP: return 1000;
-    case uSTEEP: return 1;
-    default:   return 1000000;
+    case STEEP:  return 100000000;
+    case mSTEEP: return 100000;
+    case uSTEEP: return 100;
+    default:   return 100000000;
     }
 }
 
@@ -82,9 +82,9 @@ int SteepCoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case STEEP: return 6;
-    case mSTEEP: return 3;
-    case uSTEEP: return 0;
+    case STEEP: return 8;
+    case mSTEEP: return 5;
+    case uSTEEP: return 2;
     default: return 0;
     }
 }
