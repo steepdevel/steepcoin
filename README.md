@@ -5,7 +5,7 @@ Steepcoin Official Development Repo
 [![Build Status](https://travis-ci.org/steepcoin/steepcoin.svg?branch=master)](https://travis-ci.org/steepcoin/steepcoin)
 
 ### What is Steepcoin?
-[Steepcoin](https://steepcoin.money) (abbreviated STEEP), previously known as STEEPCOIN, is the first [cryptocurrency](https://en.wikipedia.org/wiki/Cryptocurrency) design introducing [proof-of-stake consensus](https://steepcoin.money/resources#whitepaper) as a security model, with a combined [proof-of-stake](https://steepcoin.money/resources#whitepaper)/[proof-of-work](https://en.wikipedia.org/wiki/Proof-of-work_system) minting system. Steepcoin is based on [SteepCoin](https://steepcoin.org), while introducing many important innovations to cryptocurrency field including new security model, energy efficiency, better minting model and more adaptive response to rapid change in network computation power.
+[Steepcoin](https://steepcoin.money) (abbreviated STEEP), previously known as STEEPCOIN, is the first [cryptocurrency](https://en.wikipedia.org/wiki/Cryptocurrency) design introducing [proof-of-stake consensus](https://steepcoin.money/resources#whitepaper) as a security model, with a combined [proof-of-stake](https://steepcoin.money/resources#whitepaper)/[proof-of-work](https://en.wikipedia.org/wiki/Proof-of-work_system) minting system. Steepcoin is based on [SteepCoin](https://steepcoin.money), while introducing many important innovations to cryptocurrency field including new security model, energy efficiency, better minting model and more adaptive response to rapid change in network computation power.
 
 ### Steepcoin Resources
 * Client and Source:
