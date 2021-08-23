@@ -14,7 +14,7 @@
 %endif
 
 Name:		steepcoin
-Version:	0.12.0
+Version:	0.19.0
 Release:	2%{?dist}
 Summary:	Peer to Peer Cryptographic Currency
 
@@ -50,7 +50,7 @@ BuildRequires:	autoconf automake libtool
 BuildRequires:	libevent-devel
 
 
-Patch0:		steepcoin-0.12.0-libressl.patch
+Patch0:		steepcoin-0.19.0-libressl.patch
 
 
 %description
@@ -332,12 +332,12 @@ if [ `%{_sbindir}/sestatus |grep -c "disabled"` -eq 0 ]; then
 for selinuxvariant in %{selinux_variants}; do
 	%{_sbindir}/semodule -s ${selinuxvariant} -i %{_datadir}/selinux/${selinuxvariant}/steepcoin.pp &> /dev/null || :
 done
-%{_sbindir}/semanage port -a -t steepcoin_port_t -p tcp 8332
-%{_sbindir}/semanage port -a -t steepcoin_port_t -p tcp 8333
-%{_sbindir}/semanage port -a -t steepcoin_port_t -p tcp 18332
-%{_sbindir}/semanage port -a -t steepcoin_port_t -p tcp 18333
-%{_sbindir}/semanage port -a -t steepcoin_port_t -p tcp 18443
-%{_sbindir}/semanage port -a -t steepcoin_port_t -p tcp 18444
+%{_sbindir}/semanage port -a -t steepcoin_port_t -p tcp 36468
+%{_sbindir}/semanage port -a -t steepcoin_port_t -p tcp 36468
+%{_sbindir}/semanage port -a -t steepcoin_port_t -p tcp 36468
+%{_sbindir}/semanage port -a -t steepcoin_port_t -p tcp 36468
+%{_sbindir}/semanage port -a -t steepcoin_port_t -p tcp 36468
+%{_sbindir}/semanage port -a -t steepcoin_port_t -p tcp 36468
 %{_sbindir}/fixfiles -R steepcoin-server restore &> /dev/null || :
 %{_sbindir}/restorecon -R %{_localstatedir}/lib/steepcoin || :
 fi
