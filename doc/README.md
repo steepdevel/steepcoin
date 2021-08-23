@@ -1,4 +1,4 @@
-Steepcoin 0.9.0 BETA
+Steepcoin 0.19.0.0 Phoenix
 
 Setup
 ---------------------
