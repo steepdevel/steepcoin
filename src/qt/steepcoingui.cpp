@@ -408,8 +408,8 @@ void SteepCoinGUI::createActions()
     openChatroomAction = new QAction(QIcon(":/icons/steepcoin"), tr("&Chatroom"), this);
     openChatroomAction->setStatusTip(tr("Open the Steepcoin Discord in a web browser."));
 
-    openForumAction = new QAction(QIcon(":/icons/steepcoin"), tr("&Forum"), this);
-    openForumAction->setStatusTip(tr("Open https://talk.steepcoin.money in a web browser."));
+    openForumAction = new QAction(QIcon(":/icons/steepcoin"), tr("&Telegram"), this);
+    openForumAction->setStatusTip(tr("Open https://t.me/joinchat/46Vb1lwOU-gyN2I6 in Telegram."));
 
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(aboutClicked()));
@@ -774,7 +774,7 @@ void SteepCoinGUI::gotoVerifyMessageTab(QString addr)
 }
 
 void SteepCoinGUI::openChatroom() {
-    QDesktopServices::openUrl(QUrl("https://discord.gg/XPxfwtG"));
+    QDesktopServices::openUrl(QUrl("https://discord.gg/9Vc4jzsN"));
 }
 
 void SteepCoinGUI::openForum() {
