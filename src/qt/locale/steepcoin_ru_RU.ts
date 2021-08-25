@@ -1272,8 +1272,12 @@
 <context>
     <name>SendCoinsDialog</name>
     <message>
-        <source>Send Coins</source>
-        <translation>Отправка</translation>
+        <source>Add &amp;Recipient</source>
+        <translation>&amp;Добавить получателя</translation>
+    </message>
+    <message>
+        <source>Send </source>
+        <translation>Отправить</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1486,6 +1490,10 @@
     </context>
 <context>
     <name>SplashScreen</name>
+    <message>
+        <source>Loading block index...</source>
+        <translation>Загрузка индекса блоков...</translation>
+    </message>
     </context>
 <context>
     <name>TrafficGraphWidget</name>
