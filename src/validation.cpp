@@ -4593,7 +4593,7 @@ bool GetCoinAge(const CTransaction& tx, const CCoinsViewCache &view, uint64_t& n
             return error("%s() : tx missing in tx index in GetCoinAge()", __PRETTY_FUNCTION__);
     }
 
-    arith_uint256 bnCoinDay = bnCentSecond * CENT / COIN / (24 * 60 * 60);
+    arith_uint256 bnCoinDay = bnCentSecond * CENT /  (24 * 60 * 60);
     if (gArgs.GetBoolArg("-printcoinage", false))
         LogPrintf("coin age bnCoinDay=%s\n", bnCoinDay.ToString());
     nCoinAge = bnCoinDay.GetLow64();
