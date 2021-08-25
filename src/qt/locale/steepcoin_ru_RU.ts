@@ -1031,6 +1031,22 @@
 <context>
     <name>RPCConsole</name>
     <message>
+        <source>Welcome to the %1 RPC console.</source>
+        <translation>Добро пожаловать в консоль RPC %1.</translation>
+    </message>
+    <message>
+        <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
+        <translation>Используйте стрелки вверх и вниз для просмотра истории и &lt;b&gt;Ctrl-L&lt;/b&gt; для очистки экрана.</translation>
+    </message>
+    <message>
+        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
+        <translation>Напишите &lt;b&gt;help&lt;/b&gt; для просмотра доступных команд.</translation>
+    </message>
+    <message>
+        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramification of a command.</source>
+        <translation>ВНИМАНИЕ: мошенники предлагали пользователям вводить сюда команды, похищая таким образом содержимое их кошельков. Не используйте эту консоль без полного понимания смысла команд.</translation>
+    </message>
+    <message>
         <source>N/A</source>
         <translation>Н/Д</translation>
     </message>
@@ -1147,6 +1163,10 @@
         <translation>Нет</translation>
     </message>
     <message>
+        <source>&amp;Network Traffic</source>
+        <translation>Сетевой &amp;трафик</translation>
+    </message>
+    <message>
         <source>Unknown</source>
         <translation>Неизвестно</translation>
     </message>
@@ -1253,11 +1273,23 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Отправить монеты</translation>
+        <translation>Отправка</translation>
+    </message>
+    <message>
+        <source>Coin Control Features</source>
+        <translation>Функции Контроля Монет</translation>
+    </message>
+    <message>
+        <source>Inputs...</source>
+        <translation>Входы...</translation>
     </message>
     <message>
         <source>automatically selected</source>
-        <translation>выбрано автоматически</translation>
+        <translation>автоматически выбрано</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>Недостаточно средств!</translation>
     </message>
     <message>
         <source>Quantity:</source>
@@ -1265,11 +1297,11 @@
     </message>
     <message>
         <source>Bytes:</source>
-        <translation>Байтов:</translation>
+        <translation>Байт:</translation>
     </message>
     <message>
         <source>Amount:</source>
-        <translation>Количество:</translation>
+        <translation>Сумма:</translation>
     </message>
     <message>
         <source>Fee:</source>
