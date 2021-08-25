@@ -1921,7 +1921,7 @@ Exportar los datos en la pestaña actual a un archivo</translation>
     </message>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>steepcoin-core</name>
     <message>
         <source>Peercoin Core</source>
         <translation>Peercoin Core</translation>

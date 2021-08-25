@@ -386,7 +386,7 @@
     </message>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>steepcoin-core</name>
     <message>
         <source>Peercoin Core</source>
         <translation>బిట్కోయిన్ కోర్</translation>

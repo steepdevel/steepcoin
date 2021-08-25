@@ -158,7 +158,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>steepcoin-core</name>
     <message>
         <source>Error initializing block database</source>
         <translation>Error initialising block database</translation>

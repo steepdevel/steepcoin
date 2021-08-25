@@ -394,7 +394,7 @@
     </message>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>steepcoin-core</name>
     <message>
         <source>The wallet will avoid paying less than the minimum relay fee.</source>
         <translation>Кошелёк постарается не платить меньше, чем минимальная комиссия передачи.</translation>

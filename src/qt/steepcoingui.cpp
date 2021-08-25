@@ -778,7 +778,7 @@ void SteepCoinGUI::openChatroom() {
 }
 
 void SteepCoinGUI::openForum() {
-    QDesktopServices::openUrl(QUrl("https://talk.steepcoin.money"));
+    QDesktopServices::openUrl(QUrl("https://t.me/joinchat/46Vb1lwOU-gyN2I6"));
 }
 
 #endif // ENABLE_WALLET

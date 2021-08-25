@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.bitcoin;
+package org.steepcoin;
 
 public class NativeSecp256k1Util{
 

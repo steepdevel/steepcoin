@@ -11,11 +11,11 @@ Steepcoin Official Development Repo
 * Client and Source:
 [Client Binaries](https://steepcoin.money/wallet),
 [Source Code](https://github.com/steepdevel/steepcoin)
-* Documentation: [Steepcoin Whitepaper](https://steepcoin.money/resources#whitepaper),
-[Steepcoin Docs](https://docs.steepcoin.money)
-* Help: 
-[Forum](https://talk.steepcoin.money),
-[Intro & Important Links](https://talk.steepcoin.money/t/what-is-steepcoin-intro-important-links/2889)
+
+
+* Help:
+[Telegram](https://t.me/joinchat/46Vb1lwOU-gyN2I6),
+
 
 Testing
 -------
@@ -32,11 +32,6 @@ Developers are strongly encouraged to write unit tests for new code, and to subm
 Unit tests can be compiled and run (assuming they weren't disabled in configure) with:
   make check
 
-Every pull request is built for both Windows and Linux on a dedicated server,
-and unit and sanity tests are automatically run. The binaries produced may be
-used for manual QA testing — a link to them will appear in a comment on the
-pull request posted by [SteepCoinPullTester](https://github.com/SteepCoinPullTester). See https://github.com/TheBlueMatt/test-scripts
-for the build/test scripts.
 
 ### Manual Quality Assurance (QA) Testing
 
@@ -45,10 +40,9 @@ than the developer who wrote the code.
 
 * Developers work in their own forks, then submit pull requests when they think their feature or bug fix is ready.
 * If it is a simple/trivial/non-controversial change, then one of the development team members simply pulls it.
-* If it is a more complicated or potentially controversial change, then the change may be discussed in the pull request, or the requester may be asked to start a discussion in the [Steepcoin Forum](https://talk.steepcoin.money) for a broader community discussion. 
+* If it is a more complicated or potentially controversial change, then the change may be discussed in the pull request, or the requester may be asked to start a discussion in the [Steepcoin Room](https://t.me/joinchat/46Vb1lwOU-gyN2I6) for a broader community discussion.
 * The patch will be accepted if there is broad consensus that it is a good thing. Developers should expect to rework and resubmit patches if they don't match the project's coding conventions (see coding.txt) or are controversial.
 * From time to time a pull request will become outdated. If this occurs, and the pull is no longer automatically mergeable; a comment on the pull will be used to issue a warning of closure.  Pull requests closed in this manner will have their corresponding issue labeled 'stagnant'.
-* For development ideas and help see [here](https://talk.steepcoin.money/c/protocol).
 
 ## Branches:
 

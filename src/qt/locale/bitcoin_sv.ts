@@ -3097,7 +3097,7 @@ Var vänlig och försök igen.</translation>
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>steepcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Inställningar:</translation>

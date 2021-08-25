@@ -3016,7 +3016,7 @@
     </message>
 </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>steepcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Asetukset:</translation>

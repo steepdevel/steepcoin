@@ -1686,7 +1686,7 @@
     </message>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>steepcoin-core</name>
     <message>
         <source>Loading banlist...</source>
         <translation>Ładuję banlistę...</translation>

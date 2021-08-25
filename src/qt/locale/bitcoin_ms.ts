@@ -214,6 +214,6 @@
     </message>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>steepcoin-core</name>
     </context>
 </TS>
