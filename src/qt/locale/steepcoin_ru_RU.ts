@@ -676,6 +676,10 @@
     </context>
 <context>
     <name>ModalOverlay</name>
+        <message>
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
     <message>
         <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the steepcoin network, as detailed below.</source>
         <translation>Недавние транзакции могут быть пока не видны, поэтому ваш баланс может отображаться некорректно. Эта информация станет корректной, как только ваш кошелёк будет синхронизирован с сетью, см. подробности ниже.</translation>
