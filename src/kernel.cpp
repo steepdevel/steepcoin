@@ -35,8 +35,8 @@ const unsigned int nProtocolV06TestSwitchTime = 1508198400; // Tue 17 Oct 00:00:
 const unsigned int nProtocolV07SwitchTime     = 1552392000; // Tue 12 Mar 12:00:00 UTC 2019
 const unsigned int nProtocolV07TestSwitchTime = 1541505600; // Tue 06 Nov 12:00:00 UTC 2018
 // Switch time for new BIPs from steepcoin 0.16.x
-const uint32_t nSTEEP16BIPsSwitchTime = 1569931200; // Tue 01 Oct 12:00:00 UTC 2019
-const uint32_t nSTEEP16BIPsTestSwitchTime = 1554811200; // Tue 09 Apr 12:00:00 UTC 2019
+const uint32_t nBTC16BIPsSwitchTime = 1569931200; // Tue 01 Oct 12:00:00 UTC 2019
+const uint32_t nBTC16BIPsTestSwitchTime = 1554811200; // Tue 09 Apr 12:00:00 UTC 2019
 // Protocol switch time for v0.9 kernel protocol
 const unsigned int nProtocolV09SwitchTime     = 1591617600; // Mon  8 Jun 12:00:00 UTC 2020
 const unsigned int nProtocolV09TestSwitchTime = 1581940800; // Mon 17 Feb 12:00:00 UTC 2020
@@ -109,10 +109,10 @@ bool IsProtocolV07(unsigned int nTimeTx)
     return false;
 }
 
-bool IsSTEEP16BIPsEnabled(uint32_t nTimeTx)
+bool IsBTC16BIPsEnabled(uint32_t nTimeTx)
 {
-    // bool fTestNet = Params().NetworkIDString() != CBaseChainParams::MAIN;
-    // return (nTimeTx >= (fTestNet? nSTEEP16BIPsTestSwitchTime : nSTEEP16BIPsSwitchTime));
+     bool fTestNet = Params().NetworkIDString() != CBaseChainParams::MAIN;
+     return (nTimeTx >= (fTestNet? nBTC16BIPsTestSwitchTime : nBTC16BIPsSwitchTime));
     return false;
 }
 

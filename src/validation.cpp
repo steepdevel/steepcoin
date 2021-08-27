@@ -690,7 +690,7 @@ static bool AcceptToMemoryPoolWorker(const CChainParams& chainparams, CTxMemPool
 
         // steepcoin: if transaction is after version 0.8 fork, verify SCRIPT_VERIFY_LOW_S
         // steepTODO move back to policy.h after 0.8 is active
-        if (IsSTEEP16BIPsEnabled(tx.nTime))
+        if (IsBTC16BIPsEnabled(tx.nTime))
             scriptVerifyFlags &= SCRIPT_VERIFY_LOW_S;
 
         // Check against previous transactions
@@ -1569,7 +1569,7 @@ static unsigned int GetBlockScriptFlags(const CBlockIndex* pindex, const Consens
     }
 
     // Start enforcing the DERSIG (BIP66) rule
-    if (pindex->pprev && IsSTEEP16BIPsEnabled(pindex->pprev->nTime)) {
+    if (pindex->pprev && IsBTC16BIPsEnabled(pindex->pprev->nTime)) {
         flags |= SCRIPT_VERIFY_DERSIG;
     }
 
@@ -1579,7 +1579,7 @@ static unsigned int GetBlockScriptFlags(const CBlockIndex* pindex, const Consens
     }
 
     // Start enforcing BIP68 (sequence locks) and BIP112 (CHECKSEQUENCEVERIFY)
-    if (pindex->pprev && IsSTEEP16BIPsEnabled(pindex->pprev->nTime)) {
+    if (pindex->pprev && IsBTC16BIPsEnabled(pindex->pprev->nTime)) {
         flags |= SCRIPT_VERIFY_CHECKSEQUENCEVERIFY;
     }
 
@@ -1777,7 +1777,7 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
 
     // Start enforcing BIP68 (sequence locks) and BIP112 (CHECKSEQUENCEVERIFY)
     int nLockTimeFlags = 0;
-    if (pindex->pprev && IsSTEEP16BIPsEnabled(pindex->pprev->nTime)) {
+    if (pindex->pprev && IsBTC16BIPsEnabled(pindex->pprev->nTime)) {
         nLockTimeFlags |= LOCKTIME_VERIFY_SEQUENCE;
     }
 
@@ -2971,7 +2971,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
     // steepcoin: check block signature
     // Only check block signature if check merkle root, c.f. commit 3cd01fdf
     // rfc6: validate signatures of proof of stake blocks only after 0.8 fork
-    if (fCheckMerkleRoot && fCheckSignature && (block.IsProofOfStake() || !IsSTEEP16BIPsEnabled(block.GetBlockTime())) && !CheckBlockSignature(block))
+    if (fCheckMerkleRoot && fCheckSignature && (block.IsProofOfStake() || !IsBTC16BIPsEnabled(block.GetBlockTime())) && !CheckBlockSignature(block))
         return state.DoS(100, false, REJECT_INVALID, "bad-blk-sign", false, strprintf("%s : bad block signature", __func__));
 
     return true;
@@ -2980,7 +2980,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
 bool IsWitnessEnabled(const CBlockIndex* pindexPrev, const Consensus::Params& params)
 {
     LOCK(cs_main);
-    return pindexPrev ? IsSTEEP16BIPsEnabled(pindexPrev->nTime) : false; // pindexPrev == null on genesis block
+    return pindexPrev ? IsBTC16BIPsEnabled(pindexPrev->nTime) : false; // pindexPrev == null on genesis block
 }
 
 // Compute at which vout of the block's coinbase transaction the witness
@@ -3102,7 +3102,7 @@ static bool ContextualCheckBlock(const CBlock& block, CValidationState& state, c
 
     // Start enforcing BIP113 (Median Time Past)
     int nLockTimeFlags = 0;
-    if (pindexPrev && IsSTEEP16BIPsEnabled(pindexPrev->nTime)) {
+    if (pindexPrev && IsBTC16BIPsEnabled(pindexPrev->nTime)) {
         nLockTimeFlags |= LOCKTIME_MEDIAN_TIME_PAST;
     }
 
@@ -3136,7 +3136,7 @@ static bool ContextualCheckBlock(const CBlock& block, CValidationState& state, c
     //   {0xaa, 0x21, 0xa9, 0xed}, and the following 32 bytes are SHA256^2(witness root, witness nonce). In case there are
     //   multiple, the last one is used.
     bool fHaveWitness = false;
-    if (pindexPrev && IsSTEEP16BIPsEnabled(pindexPrev->nTime)) {
+    if (pindexPrev && IsBTC16BIPsEnabled(pindexPrev->nTime)) {
         int commitpos = GetWitnessCommitmentIndex(block);
         if (commitpos != -1) {
             bool malleated = false;

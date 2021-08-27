@@ -1040,7 +1040,7 @@ static UniValue SoftForkMajorityDesc(int version, CBlockIndex* pindex, const Con
             activated = pindex->nHeight >= consensusParams.BIP34Height;
             break;
         case 3:
-            activated = IsSTEEP16BIPsEnabled(pindex->nTime);
+            activated = IsBTC16BIPsEnabled(pindex->nTime);
             break;
         case 4:
             activated = IsProtocolV06(pindex);

@@ -32,7 +32,7 @@ bool IsProtocolV06(const CBlockIndex *pindexPrev);
 // Whether a given transaction is subject to new v0.7 protocol
 bool IsProtocolV07(unsigned int nTimeTx);
 // Whether a given block is subject to new BIPs from steepcoin 0.16.x
-bool IsSTEEP16BIPsEnabled(uint32_t nTimeTx);
+bool IsBTC16BIPsEnabled(uint32_t nTimeTx);
 // Whether a given timestamp is subject to new v0.9 protocol
 bool IsProtocolV09(unsigned int nTimeTx);
 
