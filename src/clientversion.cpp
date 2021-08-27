@@ -12,7 +12,7 @@
  * for both steepcoind and steepcoin-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-// const std::string CLIENT_NAME("Satoshi");
+ const std::string CLIENT_NAME("SteepCoin");
 
 /**
  * Client version number
