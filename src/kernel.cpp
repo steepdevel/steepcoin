@@ -111,8 +111,8 @@ bool IsProtocolV07(unsigned int nTimeTx)
 
 bool IsBTC16BIPsEnabled(uint32_t nTimeTx)
 {
-     bool fTestNet = Params().NetworkIDString() != CBaseChainParams::MAIN;
-     return (nTimeTx >= (fTestNet? nBTC16BIPsTestSwitchTime : nBTC16BIPsSwitchTime));
+   //  bool fTestNet = Params().NetworkIDString() != CBaseChainParams::MAIN;
+  //   return (nTimeTx >= (fTestNet? nBTC16BIPsTestSwitchTime : nBTC16BIPsSwitchTime));
     return false;
 }
 

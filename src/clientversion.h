@@ -1,9 +1,9 @@
-// Copyright (c) 2009-2017 The SteepCoin Core developers
+// Copyright (c) 2009-2017 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef STEEPCOIN_CLIENTVERSION_H
-#define STEEPCOIN_CLIENTVERSION_H
+#ifndef BITCOIN_CLIENTVERSION_H
+#define BITCOIN_CLIENTVERSION_H
 
 #if defined(HAVE_CONFIG_H)
 #include <config/steepcoin-config.h>
@@ -29,7 +29,7 @@
 #define COPYRIGHT_STR "2017-" STRINGIZE(COPYRIGHT_YEAR) " " COPYRIGHT_HOLDERS_FINAL
 
 /**
- * steepcoind-res.rc includes this file, but it cannot cope with real c++ code.
+ * bitcoind-res.rc includes this file, but it cannot cope with real c++ code.
  * WINDRES_PREPROC is defined to indicate that its pre-processor is running.
  * Anything other than a define should be guarded below.
  */
@@ -45,7 +45,7 @@ static const int CLIENT_VERSION =
                          +     100 * CLIENT_VERSION_REVISION
                          +       1 * CLIENT_VERSION_BUILD;
 
-// note: steepcoin version is used for display purpose AND to accept alerts
+// note: STEEPCOIN version is used for display purpose AND to accept alerts
 static const int STEEPCOIN_VERSION =
                            1000000 * STEEPCOIN_VERSION_MAJOR
                          +   10000 * STEEPCOIN_VERSION_MINOR
@@ -61,4 +61,4 @@ std::string FormatSubVersion(const std::string& name, int nClientVersion, const 
 
 #endif // WINDRES_PREPROC
 
-#endif // STEEPCOIN_CLIENTVERSION_H
+#endif // BITCOIN_CLIENTVERSION_H
