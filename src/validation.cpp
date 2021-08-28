@@ -3200,13 +3200,13 @@ bool CChainState::AcceptBlockHeader(const CBlockHeader& block, bool fProofOfStak
         // steepcoin: Don't reject in case of old clients. Change our assumption instead.
         //steepTODO: Maybe add restrictions until when this is allowed? We don't want new clients to pretend to be old clients and try to abuse this.
         if (!CheckBlockHeader(block, state, chainparams.GetConsensus(), !fProofOfStake, fOldClient))
-        {
+       {
             if (fOldClient)
                 fSetAsPos = !fProofOfStake; // our guess was wrong - correct it
             else
-            {
+           {
                 state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
-                return error("%s: Consensus::CheckBlockHeader: %s, %s", __func__, hash.ToString(), FormatStateMessage(state));
+               return error("%s: Consensus::CheckBlockHeader: %s, %s", __func__, hash.ToString(), FormatStateMessage(state));
             }
         }
 
