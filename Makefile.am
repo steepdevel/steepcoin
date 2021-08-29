@@ -151,13 +151,14 @@ $(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/Steepcoin-Qt: $(OSX_APP_BUILT) $(OSX_P
 deploydir: $(APP_DIST_EXTRAS)
 endif
 
+if TARGET_WINDOWS
+deploy: $(STEEPCOIN_WIN_INSTALLER)
+endif
 if TARGET_DARWIN
 appbundle: $(OSX_APP_BUILT)
 deploy: $(OSX_DMG)
 endif
-if TARGET_WINDOWS
-deploy: $(STEEPCOIN_WIN_INSTALLER)
-endif
+
 
 $(STEEPCOIN_QT_BIN): FORCE
 	$(MAKE) -C src qt/$(@F)
