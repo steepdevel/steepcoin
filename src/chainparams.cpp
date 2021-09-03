@@ -89,8 +89,8 @@ public:
 
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
-        consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
+        consensus.nRuleChangeActivationThreshold = 15; // 95% of 2016
+        consensus.nMinerConfirmationWindow = 30; // nPowTargetTimespan / nPowTargetSpacing
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0000000000000000000000000000000000000000000000000000000000000000"); // 350000
@@ -127,6 +127,8 @@ public:
          vSeeds.emplace_back("45.155.207.187");
          vSeeds.emplace_back("37.235.144.35");
          vSeeds.emplace_back("37.235.141.15");
+         vSeeds.emplace_back("5.59.133.135");
+         vSeeds.emplace_back("95.54.68.251");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,125);  // steepcoin: addresses begin with 'P'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,63); // steepcoin: addresses begin with 'p'

@@ -1,16 +1,16 @@
-// Copyright (c) 2012-2017 The SteepCoin Core developers
+// Copyright (c) 2012-2017 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef STEEPCOIN_VERSION_H
-#define STEEPCOIN_VERSION_H
+#ifndef BITCOIN_VERSION_H
+#define BITCOIN_VERSION_H
 
 /**
  * network protocol versioning
  */
 
 static const int PROTOCOL_VERSION = 85024;
-static const int OLD_VERSION = 85023; // steepcoin: used to communicate with clients that don't know how to send PoS information in headers
+static const int OLD_VERSION = 85023; // peercoin: used to communicate with clients that don't know how to send PoS information in headers
 
 //! initial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 209;
@@ -29,7 +29,7 @@ static const int CADDR_TIME_VERSION = 31402;
 static const int BIP0031_VERSION = 60000;
 
 //! "filter*" commands are disabled without NODE_BLOOM after and including this version
-static const int NO_BLOOM_VERSION = 85023;
+static const int NO_BLOOM_VERSION = 70011;
 
 //! "sendheaders" command and announcing blocks with headers starts with this version
 static const int SENDHEADERS_VERSION = 70012;
@@ -43,4 +43,4 @@ static const int SHORT_IDS_BLOCKS_VERSION = 70014;
 //! not banning for invalid compact blocks starts with this version
 static const int INVALID_CB_NO_BAN_VERSION = 70015;
 
-#endif // STEEPCOIN_VERSION_H
+#endif // BITCOIN_VERSION_H

@@ -79,6 +79,8 @@ STEEPCOIN_CORE_H = \
   addrman.h \
   alert.h \
   base58.h \
+  bip39.h \
+  bip39_english.h \
   bignum.h \
   bech32.h \
   banned.h \
@@ -352,6 +354,7 @@ libsteepcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libsteepcoin_common_a_SOURCES = \
   base58.cpp \
   bech32.cpp \
+  bip39.cpp \
   chainparams.cpp \
   coins.cpp \
   compressor.cpp \
