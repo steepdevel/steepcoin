@@ -212,8 +212,8 @@ UniValue addnode(const JSONRPCRequest& request)
             "1. \"node\"     (string, required) The node (see getpeerinfo for nodes)\n"
             "2. \"command\"  (string, required) 'add' to add a node to the list, 'remove' to remove a node from the list, 'onetry' to try a connection to the node once\n"
             "\nExamples:\n"
-            + HelpExampleCli("addnode", "\"192.168.0.6:8333\" \"onetry\"")
-            + HelpExampleRpc("addnode", "\"192.168.0.6:8333\", \"onetry\"")
+            + HelpExampleCli("addnode", "\"192.168.0.6:36468\" \"onetry\"")
+            + HelpExampleRpc("addnode", "\"192.168.0.6:36468\", \"onetry\"")
         );
 
     if(!g_connman)
@@ -254,9 +254,9 @@ UniValue disconnectnode(const JSONRPCRequest& request)
             "1. \"address\"     (string, optional) The IP address/port of the node\n"
             "2. \"nodeid\"      (number, optional) The node ID (see getpeerinfo for node IDs)\n"
             "\nExamples:\n"
-            + HelpExampleCli("disconnectnode", "\"192.168.0.6:8333\"")
+            + HelpExampleCli("disconnectnode", "\"192.168.0.6:36468\"")
             + HelpExampleCli("disconnectnode", "\"\" 1")
-            + HelpExampleRpc("disconnectnode", "\"192.168.0.6:8333\"")
+            + HelpExampleRpc("disconnectnode", "\"192.168.0.6:36468\"")
             + HelpExampleRpc("disconnectnode", "\"\", 1")
         );
 
@@ -301,7 +301,7 @@ UniValue getaddednodeinfo(const JSONRPCRequest& request)
             "    \"connected\" : true|false,          (boolean) If connected\n"
             "    \"addresses\" : [                    (list of objects) Only when connected = true\n"
             "       {\n"
-            "         \"address\" : \"192.168.0.201:8333\",  (string) The steepcoin server IP and port we're connected to\n"
+            "         \"address\" : \"192.168.0.201:36468\",  (string) The steepcoin server IP and port we're connected to\n"
             "         \"connected\" : \"outbound\"           (string) connection, inbound or outbound\n"
             "       }\n"
             "     ]\n"
@@ -627,7 +627,7 @@ UniValue setnetworkactive(const JSONRPCRequest& request)
     return g_connman->GetNetworkActive();
 }
 
-// steepcoin: send alert.  
+// steepcoin: send alert.
 UniValue sendalert(const JSONRPCRequest& request)
 {
     if (request.fHelp || request.params.size() < 6)
@@ -659,7 +659,7 @@ UniValue sendalert(const JSONRPCRequest& request)
     CDataStream sMsg(SER_NETWORK, PROTOCOL_VERSION);
     sMsg << (CUnsignedAlert)alert;
     alert.vchMsg = std::vector<unsigned char>(sMsg.begin(), sMsg.end());
-    
+
     // read & check key
     CSteepCoinSecret vchSecret;
     if (!vchSecret.SetString(request.params[1].get_str()))
