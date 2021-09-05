@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2017 The SteepCoin Core developers
+// Copyright (c) 2009-2017 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -689,7 +689,7 @@ static bool AcceptToMemoryPoolWorker(const CChainParams& chainparams, CTxMemPool
         }
 
         // steepcoin: if transaction is after version 0.8 fork, verify SCRIPT_VERIFY_LOW_S
-        // steepTODO move back to policy.h after 0.8 is active
+        // ppcTODO move back to policy.h after 0.8 is active
         if (IsBTC16BIPsEnabled(tx.nTime))
             scriptVerifyFlags &= SCRIPT_VERIFY_LOW_S;
 
@@ -907,16 +907,16 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
 int64_t GetProofOfWorkReward(int nHeight)
 {
     int64_t nSubsidy = 0 * COIN;
-
+    
     // SteepCoin ICO RESERVED ( Totally:500 millions)
     if (nHeight == 1) {
-        nSubsidy = 100000000 * COIN;
+        nSubsidy = 100000000 * COIN; 
     } else if (nHeight < 10)  {
         nSubsidy = 50000000 * COIN;
     } else if (nHeight < 500000) {
         nSubsidy = 1 * COIN;
     }
-
+    
     return nSubsidy;
 }
 
@@ -925,7 +925,7 @@ int64_t GetProofOfStakeReward(int nHeight)
     int64_t nSubsidy = 0 * COIN;
 
     if (nHeight <= 2000) {
-        nSubsidy = 10 * COIN;
+        nSubsidy = 10 * COIN; 
     } else if (nHeight <= 4000) {
         nSubsidy = 20 * COIN;
     } else if (nHeight <= 6000) {
@@ -1144,7 +1144,7 @@ void static InvalidChainFound(CBlockIndex* pindexNew)
 
     LogPrintf("%s: invalid block=%s  height=%d  log2_trust=%.8g  moneysupply=%s  date=%s  moneysupply=%s\n", __func__,
       pindexNew->GetBlockHash().ToString(), pindexNew->nHeight,
-      log(pindexNew->nChainTrust.getdouble())/log(2.0),
+      log(pindexNew->nChainTrust.getdouble())/log(2.0), 
       FormatMoney(chainActive.Tip()->nMoneySupply),
       DateTimeStrFormat("%Y-%m-%d %H:%M:%S", pindexNew->GetBlockTime()),
       FormatMoney(pindexNew->nMoneySupply));
@@ -1604,7 +1604,7 @@ static int64_t nTimeTotal = 0;
 static int64_t nBlocksTotal = 0;
 
 // These checks can only be done when all previous block have been added.
-bool PeercoinContextualBlockChecks(const CBlock& block, CValidationState& state, CBlockIndex* pindex, bool fJustCheck)
+bool SteepcoinContextualBlockChecks(const CBlock& block, CValidationState& state, CBlockIndex* pindex, bool fJustCheck)
 {
     uint256 hashProofOfStake = uint256();
     // steepcoin: verify hash target and signature of coinstake tx
@@ -1677,7 +1677,7 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
            (*pindex->phashBlock == block.GetHash()));
     int64_t nTimeStart = GetTimeMicros();
 
-    if (pindex->nStakeModifier == 0 && pindex->nStakeModifierChecksum == 0 && !PeercoinContextualBlockChecks(block, state, pindex, fJustCheck))
+    if (pindex->nStakeModifier == 0 && pindex->nStakeModifierChecksum == 0 && !SteepcoinContextualBlockChecks(block, state, pindex, fJustCheck))
         return error("%s: failed PoS check %s", __func__, FormatStateMessage(state));
 
     // Check it again in case a previous version let a bad block in
@@ -1847,7 +1847,7 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
             return state.DoS(100, error("ConnectBlock(): too many sigops"),
                              REJECT_INVALID, "bad-blk-sigops");
 
-        if (tx.IsCoinStake()) {
+        if (tx.IsCoinStake()) {             
             nActualStakeReward = tx.GetValueOut() - view.GetValueIn(tx);
         }
 
@@ -1904,7 +1904,7 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
     pindex->nMint = nValueOut - nValueIn + nFees;
     pindex->nMoneySupply = (pindex->pprev? pindex->pprev->nMoneySupply : 0) + nValueOut - nValueIn;
 
-    // steepcoin: fees are not collected by miners as in steepcoin
+    // steepcoin: fees are not collected by miners as in bitcoin
     // steepcoin: fees are destroyed to compensate the entire network
     if (gArgs.GetBoolArg("-printcreation", false))
         LogPrintf("%s: destroy=%s nFees=%lld\n", __func__, FormatMoney(nFees), nFees);
@@ -2948,10 +2948,10 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
 
     // Check transactions
     for (const auto& tx : block.vtx)
-   {
+    {
         if (!CheckTransaction(*tx, state, true))
             return state.Invalid(false, state.GetRejectCode(), state.GetRejectReason(),
-                               strprintf("Transaction check failed (tx hash %s) %s", tx->GetHash().ToString(), state.GetDebugMessage()));
+                                 strprintf("Transaction check failed (tx hash %s) %s", tx->GetHash().ToString(), state.GetDebugMessage()));
         // steepcoin: check transaction timestamp
         if (block.GetBlockTime() < (int64_t)tx->nTime)
             return state.DoS(50, false, REJECT_INVALID, "bad-tx-time", false, strprintf("%s : block timestamp earlier than transaction timestamp", __func__));
@@ -3053,9 +3053,6 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, bool fProofOfS
 
     // Check proof of work or proof-of-stake
     const Consensus::Params& consensusParams = params.GetConsensus();
-    // Last PoW block
-    if (!fProofOfStake && nHeight > Params().GetConsensus().nLastPOWBlock)
-        return state.DoS(100, false, REJECT_INVALID, "bad-pow-height", false, "proof-of-work is not allowed");
     if (block.nBits != GetNextTargetRequired(pindexPrev, fProofOfStake, consensusParams))
         return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, "incorrect proof of work/proof-of-stake");
 
@@ -3102,10 +3099,6 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, bool fProofOfS
 static bool ContextualCheckBlock(const CBlock& block, CValidationState& state, const CBlockIndex* pindexPrev)
 {
     const int nHeight = pindexPrev == nullptr ? 0 : pindexPrev->nHeight + 1;
-    
-    // Last PoW block
-    if (block.IsProofOfWork() && nHeight > Params().GetConsensus().nLastPOWBlock)
-        return state.DoS(100, false, REJECT_INVALID, "bad-pow-height", false, "proof-of-work is not allowed");
 
     // Start enforcing BIP113 (Median Time Past)
     int nLockTimeFlags = 0;
@@ -3205,15 +3198,15 @@ bool CChainState::AcceptBlockHeader(const CBlockHeader& block, bool fProofOfStak
         }
 
         // steepcoin: Don't reject in case of old clients. Change our assumption instead.
-        //steepTODO: Maybe add restrictions until when this is allowed? We don't want new clients to pretend to be old clients and try to abuse this.
+        //ppcTODO: Maybe add restrictions until when this is allowed? We don't want new clients to pretend to be old clients and try to abuse this.
         if (!CheckBlockHeader(block, state, chainparams.GetConsensus(), !fProofOfStake, fOldClient))
-       {
+        {
             if (fOldClient)
                 fSetAsPos = !fProofOfStake; // our guess was wrong - correct it
             else
-           {
+            {
                 state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
-               return error("%s: Consensus::CheckBlockHeader: %s, %s", __func__, hash.ToString(), FormatStateMessage(state));
+                return error("%s: Consensus::CheckBlockHeader: %s, %s", __func__, hash.ToString(), FormatStateMessage(state));
             }
         }
 
@@ -3251,7 +3244,7 @@ bool CChainState::AcceptBlockHeader(const CBlockHeader& block, bool fProofOfStak
 
     CheckBlockIndex(chainparams.GetConsensus());
 
-    //steepTODO - move this somewhere in the upper calls, where pfrom is visible
+    //ppcTODO - move this somewhere in the upper calls, where pfrom is visible
 //    // steepcoin: ask for pending sync-checkpoint if any
 //    if (!IsInitialBlockDownload())
 //        AskForPendingSyncCheckpoint(pfrom);
@@ -3383,7 +3376,7 @@ bool CChainState::AcceptBlock(const std::shared_ptr<const CBlock>& pblock, CVali
     }
 
     // steepcoin: check PoS
-    if (fCheckPoS && !PeercoinContextualBlockChecks(block, state, pindex, false)) {
+    if (fCheckPoS && !SteepcoinContextualBlockChecks(block, state, pindex, false)) {
         pindex->nStatus |= BLOCK_FAILED_VALID;
         setDirtyBlockIndex.insert(pindex);
         return state.DoS(100, false, REJECT_INVALID, "bad-pos", false, "proof of stake is incorrect");
@@ -4589,7 +4582,7 @@ bool GetCoinAge(const CTransaction& tx, const CCoinsViewCache &view, uint64_t& n
             int nEffectiveAge = tx.nTime-txPrev->nTime;
 
             if (!isTrueCoinAge || IsProtocolV09(tx.nTime))
-                nEffectiveAge = std::min(nEffectiveAge, 24 * 60 * 60);
+                nEffectiveAge = std::min(nEffectiveAge, 365 * 24 * 60 * 60);
 
             bnCentSecond += arith_uint256(nValueIn) * nEffectiveAge / CENT;
 
@@ -4600,7 +4593,7 @@ bool GetCoinAge(const CTransaction& tx, const CCoinsViewCache &view, uint64_t& n
             return error("%s() : tx missing in tx index in GetCoinAge()", __PRETTY_FUNCTION__);
     }
 
-    arith_uint256 bnCoinDay = bnCentSecond * CENT /  (24 * 60 * 60);
+    arith_uint256 bnCoinDay = bnCentSecond * CENT / COIN / (24 * 60 * 60);
     if (gArgs.GetBoolArg("-printcoinage", false))
         LogPrintf("coin age bnCoinDay=%s\n", bnCoinDay.ToString());
     nCoinAge = bnCoinDay.GetLow64();

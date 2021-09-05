@@ -98,7 +98,7 @@ std::string FormatSubVersion(const std::string& name, int nClientVersion, const 
         ss << ")";
     }
     ss << "/";
-    ss << "STEEPCOIN:" << FormatVersion(STEEPCOIN_VERSION);
+    ss << "SteepCoin:" << FormatVersion(STEEPCOIN_VERSION);
     ss << "(" << CLIENT_BUILD << ")/";
     return ss.str();
 }
