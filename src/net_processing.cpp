@@ -2370,19 +2370,19 @@ bool static ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStr
         const CBlockIndex *pindex = nullptr;
         CValidationState state;
 
-        if (!ProcessNewBlockHeaders(nPoSTemperature, chainActive.Tip()->GetBlockHash(), {cmpctblock.header}, false, state, chainparams, &pindex)) {
-            int nDoS;
-            if (state.IsInvalid(nDoS)) {
-                if (nDoS > 0) {
-                    LogPrintf("Peer %d sent us invalid header via cmpctblock\n", pfrom->GetId());
-                    LOCK(cs_main);
-                    Misbehaving(pfrom->GetId(), nDoS);
-                } else {
-                    LogPrint(BCLog::NET, "Peer %d sent us invalid header via cmpctblock\n", pfrom->GetId());
-                }
-                return true;
-            }
-        }
+      //  if (!ProcessNewBlockHeaders(nPoSTemperature, chainActive.Tip()->GetBlockHash(), {cmpctblock.header}, false, state, chainparams, &pindex)) {
+     //       int nDoS;
+        //    if (state.IsInvalid(nDoS)) {
+           //     if (nDoS > 0) {
+              //      LogPrintf("Peer %d sent us invalid header via cmpctblock\n", pfrom->GetId());
+                //    LOCK(cs_main);
+             //       Misbehaving(pfrom->GetId(), nDoS);
+             //   } else {
+              //      LogPrint(BCLog::NET, "Peer %d sent us invalid header via cmpctblock\n", pfrom->GetId());
+           //     }
+          //      return true;
+         //   }
+     //   }
 
         // if (nPoSTemperature >= MAX_CONSECUTIVE_POS_HEADERS) {
         //     nPoSTemperature = (MAX_CONSECUTIVE_POS_HEADERS*3)/4;
