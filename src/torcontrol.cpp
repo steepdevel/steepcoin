@@ -14,7 +14,7 @@
 #include <deque>
 #include <set>
 #include <stdlib.h>
-
+#include <boost/bind/bind.hpp>
 #include <boost/bind.hpp>
 #include <boost/signals2/signal.hpp>
 #include <boost/algorithm/string/split.hpp>
@@ -26,6 +26,9 @@
 #include <event2/util.h>
 #include <event2/event.h>
 #include <event2/thread.h>
+
+
+
 
 /** Default control port */
 const std::string DEFAULT_TOR_CONTROL = "127.0.0.1:9051";
