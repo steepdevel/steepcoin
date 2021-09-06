@@ -89,7 +89,7 @@ public:
 
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
-        consensus.nRuleChangeActivationThreshold = 15; // 95% of 2016
+        consensus.nRuleChangeActivationThreshold = 22; // 75% of 30
         consensus.nMinerConfirmationWindow = 30; // nPowTargetTimespan / nPowTargetSpacing
 
         // The best chain should have at least this much work.

@@ -3053,6 +3053,11 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, bool fProofOfS
 
     // Check proof of work or proof-of-stake
     const Consensus::Params& consensusParams = params.GetConsensus();
+
+    // Last PoW block
+    if (!fProofOfStake && nHeight > Params().GetConsensus().nLastPOWBlock)
+        return state.DoS(100, false, REJECT_INVALID, "bad-pow-height", false, "proof-of-work is not allowed");
+
     if (block.nBits != GetNextTargetRequired(pindexPrev, fProofOfStake, consensusParams))
         return state.DoS(100, false, REJECT_INVALID, "bad-diffbits", false, "incorrect proof of work/proof-of-stake");
 
@@ -3099,6 +3104,10 @@ static bool ContextualCheckBlockHeader(const CBlockHeader& block, bool fProofOfS
 static bool ContextualCheckBlock(const CBlock& block, CValidationState& state, const CBlockIndex* pindexPrev)
 {
     const int nHeight = pindexPrev == nullptr ? 0 : pindexPrev->nHeight + 1;
+
+    // Last PoW block
+    if (block.IsProofOfWork() && nHeight > Params().GetConsensus().nLastPOWBlock)
+        return state.DoS(100, false, REJECT_INVALID, "bad-pow-height", false, "proof-of-work is not allowed");
 
     // Start enforcing BIP113 (Median Time Past)
     int nLockTimeFlags = 0;
@@ -3376,11 +3385,11 @@ bool CChainState::AcceptBlock(const std::shared_ptr<const CBlock>& pblock, CVali
     }
 
     // steepcoin: check PoS
-    if (fCheckPoS && !SteepcoinContextualBlockChecks(block, state, pindex, false)) {
-        pindex->nStatus |= BLOCK_FAILED_VALID;
-        setDirtyBlockIndex.insert(pindex);
-        return state.DoS(100, false, REJECT_INVALID, "bad-pos", false, "proof of stake is incorrect");
-    }
+  //  if (fCheckPoS && !SteepcoinContextualBlockChecks(block, state, pindex, false)) {
+   //     pindex->nStatus |= BLOCK_FAILED_VALID;
+     //   setDirtyBlockIndex.insert(pindex);
+      //  return state.DoS(100, false, REJECT_INVALID, "bad-pos", false, "proof of stake is incorrect");
+  //  }
 
     // Header is valid/has work, merkle tree and segwit merkle tree are good...RELAY NOW
     // (but if it does not build on our best tip, let the SendMessages loop relay it)

@@ -570,7 +570,7 @@ bool IsSuperMajority(int minVersion, const CBlockIndex* pstart, unsigned int nRe
     return (nFound >= nRequired);
 }
 
-// peercoin: entropy bit for stake modifier if chosen by modifier
+// steepcoin: entropy bit for stake modifier if chosen by modifier
 unsigned int GetStakeEntropyBit(const CBlock& block)
 {
     unsigned int nEntropyBit = 0;
