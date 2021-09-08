@@ -16,12 +16,12 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/steepcoin/steepcoin
+url=https://github.com/steepdevel/steepcoin
 proc=2
 mem=2000
 lxc=true
 osslTarUrl=http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
-osslPatchUrl=https://steepcoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
+osslPatchUrl=https://bitcoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
 scriptName=$(basename -- "$0")
 signProg="gpg --detach-sign"
 commitFiles=true
@@ -229,8 +229,8 @@ echo ${COMMIT}
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/steepcoin-core/gitian.sigs.git
-    git clone https://github.com/steepcoin-core/steepcoin-detached-sigs.git
+    git clone https://github.com/steepdevel/steepcoin/gitian.sigs.git
+    git clone https://github.com/steepdevel/steepcoin/steepcoin-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
     if [[ -n "$USE_LXC" ]]
