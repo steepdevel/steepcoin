@@ -1,17 +1,17 @@
-Steepcoin version 0.8.x is now available from:
+Steepcoin version 0.9.x is now available from:
 
-  <https://steepcoincore.org/bin/steepcoin-core-0.16.x/>
+  <https://steepcoin.money/bin/steepcoin-core-0.16.x/>
 
 This is a new minor version release, with various bugfixes
 as well as updated translations.
 
 Please report bugs using the issue tracker at GitHub:
 
-  <https://github.com/steepcoin/steepcoin/issues>
+  <https://github.com/steepdevel/steepcoin/issues>
 
 To receive security and update notifications, please subscribe to:
 
-  <https://steepcoincore.org/en/list/announcements/join/>
+  <https://steepcoin.money/en/list/announcements/join/>
 
 How to Upgrade
 ==============
