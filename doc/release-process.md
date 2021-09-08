@@ -3,9 +3,9 @@ Release Process
 
 Before every release candidate:
 
-* Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/steepcoin/steepcoin/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/steepdevel/steepcoin/blob/master/doc/translation_process.md#synchronising-translations).
 
-* Update manpages, see [gen-manpages.sh](https://github.com/steepcoin/steepcoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update manpages, see [gen-manpages.sh](https://github.com/steepdevel/steepcoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
 
 Before every minor and major release:
 
@@ -21,7 +21,7 @@ Before every minor and major release:
 
 Before every major release:
 
-* Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/steepcoin/steepcoin/pull/7415) for an example.
+* Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/steepdevel/steepcoin/pull/7415) for an example.
 * Update [`BLOCK_CHAIN_SIZE`](/src/qt/intro.cpp) to the current size plus some overhead.
 * Update `src/chainparams.cpp` chainTxData with statistics about the transaction count and rate.
 * Update version of `contrib/gitian-descriptors/*.yml`: usually one'd want to do this on master after branching off the release - but be sure to at least do it before a new major release
@@ -33,10 +33,10 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/steepcoin-core/gitian.sigs.git
-    git clone https://github.com/steepcoin-core/steepcoin-detached-sigs.git
+    git clone https://github.com/steepdevel/steepcoin/gitian.sigs.git
+    git clone https://github.com/steepdevel/steepcoin/steepcoin-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/steepcoin/steepcoin.git
+    git clone https://github.com/steepdevel/steepcoin.git
 
 ### Steepcoin maintainers/release engineers, suggestion for writing release notes
 
@@ -84,7 +84,7 @@ Ensure gitian-builder is up-to-date:
 
     pushd ./gitian-builder
     mkdir -p inputs
-    wget -P inputs https://steepcoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
+    wget -P inputs https://steepcoin.money/cfields/osslsigncode-Backports-to-1.7.1.patch
     wget -P inputs http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
     popd
 
@@ -195,7 +195,7 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [steepcoin-detached-sigs](https://github.com/steepcoin-core/steepcoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [steepcoin-detached-sigs](https://github.com/steepdevel/steepcoin/steepcoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
@@ -261,29 +261,29 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the steepcoin.org server
-  into `/var/www/bin/steepcoin-core-${VERSION}`
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the steepcoin.money server
+  into `/var/www/bin/steepcoin-${VERSION}`
 
 - A `.torrent` will appear in the directory after a few minutes. Optionally help seed this torrent. To get the `magnet:` URI use:
 ```bash
 transmission-show -m <torrent file>
 ```
 Insert the magnet URI into the announcement sent to mailing lists. This permits
-people without access to `steepcoin.org` to download the binary distribution.
+people without access to `steepcoin.money` to download the binary distribution.
 Also put it into the `optional_magnetlink:` slot in the YAML file for
 steepcoin.org (see below for steepcoin.org update instructions).
 
-- Update steepcoin.org version
+- Update steepcoin.money version
 
-  - First, check to see if the SteepCoin.org maintainers have prepared a
-    release: https://github.com/steepcoin-dot-org/steepcoin.org/labels/Releases
+  - First, check to see if the steepcoin.money maintainers have prepared a
+    release: https://github.com/steepdevel/steepcoin/labels/Releases
 
       - If they have, it will have previously failed their Travis CI
         checks because the final release files weren't uploaded.
         Trigger a Travis CI rebuild---if it passes, merge.
 
-  - If they have not prepared a release, follow the SteepCoin.org release
-    instructions: https://github.com/steepcoin-dot-org/steepcoin.org#release-notes
+  - If they have not prepared a release, follow the steepcoin.money release
+    instructions: https://github.com/steepdevel/steepcoin#release-notes
 
   - After the pull request is merged, the website will automatically show the newest version within 15 minutes, as well
     as update the OS download links. Ping @saivann/@harding (saivann/harding on Freenode) in case anything goes wrong
@@ -292,9 +292,9 @@ steepcoin.org (see below for steepcoin.org update instructions).
 
   - steepcoin-dev and steepcoin-core-dev mailing list
 
-  - SteepCoin announcements list https://steepcoincore.org/en/list/announcements/join/
+  - SteepCoin announcements list https://steepcoin.money/en/list/announcements/join/
 
-  - steepcoincore.org blog post
+  - steepcoin.money blog post
 
   - Update title of #steepcoin on Freenode IRC
 
@@ -304,6 +304,6 @@ steepcoin.org (see below for steepcoin.org update instructions).
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/steepcoin/steepcoin/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/steepdevel/steepcoin/releases/new) with a link to the archived release notes.
 
   - Celebrate
