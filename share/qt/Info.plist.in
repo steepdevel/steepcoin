@@ -46,7 +46,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.steepcoin.PeercoinPayment</string>
+      <string>org.steepcoin.SteepcoinPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>steepcoin</string>
